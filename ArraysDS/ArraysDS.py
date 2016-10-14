@@ -4,6 +4,8 @@ from ArraysOp import ArraysOp
 
 
 def main():
+    """Given an array, , of  integers, print each element in reverse order
+    as a single line of space-separated integers."""
     (n, arr) = readInput()
     obj = ArraysOp(n, arr)
     arr = obj.reverseArr()
