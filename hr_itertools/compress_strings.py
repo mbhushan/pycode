@@ -7,17 +7,17 @@ def main():
     result = []
     last = A[0]
     alen = len(A)
-    count = 0
+    count = 1
     for i in range(1, alen):
         if A[i] == last:
             count += 1
         else:
-            result.append((count+1, last))
+            result.append((count, last))
             last = A[i]
-            count = 0
+            count = 1
 
     if count != 0:
-        result.append((count+1, last))
+        result.append((count, last))
 
     for t in result:
         print(t, end=" ")
