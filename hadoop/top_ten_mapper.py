@@ -27,7 +27,6 @@ def mapper():
     for key in heap:
         print("%s" % (key))
 
-
         #writer.writerow(line)
 
 
