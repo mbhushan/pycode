@@ -1,9 +1,17 @@
+import math
+from decimal import Decimal, getcontext
+
+getcontext().prec = 30
+
 class Vector(object):
+
+    CANNOT_NORMALIZE_ZERO_VECTOR = "Cannot normalize zero vector!"
+
     def __init__(self, coordinates):
         try:
             if not coordinates:
                 raise ValueError
-            self.coordinates = tuple(coordinates)
+            self.coordinates = tuple([Decimal(x) for x in coordinates])
             self.dimension = len(coordinates)
 
         except ValueError:
@@ -29,24 +37,33 @@ class Vector(object):
         return Vector(ans)
 
     def scalar_multiply(self, num):
-        ans = [(num * x) for x in self.coordinates]
+        ans = [(Decimal(num) * x) for x in self.coordinates]
         return Vector(ans)
 
+    def magnitude(self):
+        sumsqr = sum([x*x for x in self.coordinates])
+        mag = math.sqrt(sumsqr)
+        return mag
 
-def main():
-    v1 = Vector([8.218, -9.341])
-    v2 = Vector([-1.129, 2.111])
-    v3 = v2 + v1
-    print(v3)
+    def normalize(self):
+        try:
+            mag = self.magnitude()
+            return self.scalar_multiply(Decimal(1./mag))
+        except ZeroDivisionError:
+            raise Exception("Can not normalize zero vector!")
 
-    v1 = Vector([7.119, 8.215])
-    v2 = Vector([-8.223, 0.878 ])
-    v3 = v1 - v2
-    print(v3)
+    def dot_product(self, other):
+        prod = [i*j for i, j in zip(self.coordinates, other.coordinates)]
+        return sum(prod)
 
-    v1 = Vector([ 1.671, -1.012, -0.318])
-    v2 = v1.scalar_multiply(7.41)
-    print(v2)
+    def calc_angle(self, other, in_degree=False):
+        v1_mag = self.magnitude()
+        v2_mag = other.magnitude()
+        dot_prod = self.dot_product(other)
+        denom = v1_mag * v2_mag
+        value = 0 if denom == 0 else (Decimal(dot_prod / Decimal(denom)))
+        radian = math.acos(value)
+        degree = (radian * 180) / math.pi
+        return degree if in_degree else radian
 
-if __name__ == '__main__':
-    main()
+
