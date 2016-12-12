@@ -1,7 +1,7 @@
 import math
 from decimal import Decimal, getcontext
 
-getcontext().prec = 30
+getcontext().prec = 3
 
 class Vector(object):
 
@@ -65,5 +65,23 @@ class Vector(object):
         radian = math.acos(value)
         degree = (radian * 180) / math.pi
         return degree if in_degree else radian
+
+    def is_parallel(self, other):
+        if self.is_zero_vector() or other.is_zero_vector():
+            return True
+
+        relation = [x/y for x, y in zip(self.coordinates, other.coordinates) if y != 0]
+        if len(relation) == len(self.coordinates):
+            return all([x == relation[0] for x in relation])
+
+        return False
+
+    def is_zero_vector(self):
+        return all([x == 0 for x in self.coordinates])
+
+    def is_orthogonal(self, other):
+        if self.is_zero_vector() or other.is_zero_vector():
+            return True
+        return self.dot_product(other) == 0
 
 
