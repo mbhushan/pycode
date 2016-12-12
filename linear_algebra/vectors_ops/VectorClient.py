@@ -1,6 +1,22 @@
 from linear_algebra.vectors_ops.Vector import Vector
 
 
+def quiz5():
+    v1 = Vector([3.039, 1.879])
+    v2 = Vector([0.825, 2.036])
+    print("projection: %s" % (v1.projection(v2)))
+
+    v1 = Vector([-9.88, -3.264, -8.159])
+    v2 = Vector([-2.155, -9.353, -9.473 ])
+    print("perpendicular: %s" % (v1.perpendicular(v2)))
+
+    v1 = Vector([3.009, -6.172, 3.692, -2.51])
+    v2 = Vector([6.404, -9.144, 2.759, 8.718])
+    print("problem 3. projection: %s" % (v1.projection(v2)))
+    print("problem 3. perpendicular: %s" % (v1.perpendicular(v2)))
+
+
+
 def quiz4():
     v1 = Vector([-7.579, -7.88])
     v2 = Vector([22.737, 23.64])
@@ -71,6 +87,7 @@ def quiz1():
     print(v2)
 
 def main():
+    quiz5()
     quiz4()
     quiz3()
     quiz2()
