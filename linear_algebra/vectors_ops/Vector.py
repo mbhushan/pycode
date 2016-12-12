@@ -1,7 +1,7 @@
 import math
 from decimal import Decimal, getcontext
 
-getcontext().prec = 3
+getcontext().prec = 30
 
 class Vector(object):
 
@@ -72,16 +72,26 @@ class Vector(object):
 
         relation = [x/y for x, y in zip(self.coordinates, other.coordinates) if y != 0]
         if len(relation) == len(self.coordinates):
-            return all([x == relation[0] for x in relation])
+            return all([round(x, 3) == round(relation[0], 3) for x in relation])
 
         return False
 
     def is_zero_vector(self):
-        return all([x == 0 for x in self.coordinates])
+        return all([round(x, 3) == 0 for x in self.coordinates])
 
     def is_orthogonal(self, other):
         if self.is_zero_vector() or other.is_zero_vector():
             return True
-        return self.dot_product(other) == 0
+        return round(self.dot_product(other), 3) == 0
 
+    def projection(self, b):
+        norm_b = b.normalize()
+        c = self.dot_product(norm_b)
+        ans = norm_b.scalar_multiply(c)
+        return ans
+
+    def perpendicular(self, b):
+        v_proj = self.projection(b)
+        ans = self - v_proj
+        return ans
 
