@@ -1,6 +1,26 @@
 from linear_algebra.vectors_ops.Vector import Vector
 
 
+def quiz4():
+    v1 = Vector([-7.579, -7.88])
+    v2 = Vector([22.737, 23.64])
+    print("is parallel: %s" % (v1.is_parallel(v2)) )
+    print("is orthogonal: %s" % (v1.is_orthogonal(v2)) )
+
+    v1 = Vector([-2.029, 9.97, 4.172])
+    v2 = Vector([-9.231, -6.639, -7.245])
+    print("is parallel: %s" % (v1.is_parallel(v2)) )
+    print("is orthogonal: %s" % (v1.is_orthogonal(v2)) )
+
+    v1 = Vector([-2.328, -7.284, -1.214])
+    v2 = Vector([-1.821, 1.072, -2.94])
+    print("is parallel: %s" % (v1.is_parallel(v2)) )
+    print("is orthogonal: %s" % (v1.is_orthogonal(v2)) )
+
+    v1 = Vector([2.118, 4.827])
+    v2 = Vector([0, 0])
+    print("is parallel: %s" % (v1.is_parallel(v2)))
+    print("is orthogonal: %s" % (v1.is_orthogonal(v2)))
 
 def quiz3():
     v1 = Vector([7.887, 4.138])
@@ -51,6 +71,7 @@ def quiz1():
     print(v2)
 
 def main():
+    quiz4()
     quiz3()
     quiz2()
     quiz1()
