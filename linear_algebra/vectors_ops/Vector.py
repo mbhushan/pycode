@@ -95,3 +95,13 @@ class Vector(object):
         ans = self - v_proj
         return ans
 
+    def cross_product(self, v):
+        None
+
+    def area_parallelogram(self, v):
+        None
+
+    def area_triangle(self, v):
+        None
+
+
