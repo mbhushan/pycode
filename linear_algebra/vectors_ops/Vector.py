@@ -108,9 +108,10 @@ class Vector(object):
            print("invalid vectors for cross product found!")
 
 
-
     def area_parallelogram(self, v):
-        None
+        w = self.cross_product(v)
+        return w.magnitude()
+
 
     def area_triangle(self, v):
         None
