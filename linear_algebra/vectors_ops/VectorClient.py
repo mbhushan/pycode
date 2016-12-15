@@ -12,6 +12,10 @@ def quiz6():
     v2 = Vector([-4.268, -1.861, -8.866 ])
     print("parallelogram area: %s" % (v1.area_parallelogram(v2)))
 
+    v1 = Vector([1.5, 9.547, 3.691])
+    v2 = Vector([-6.007, 0.124, 5.772 ])
+    print("triangle area: %s" % (v1.area_triangle(v2)))
+
 
 def quiz5():
     v1 = Vector([3.039, 1.879])
