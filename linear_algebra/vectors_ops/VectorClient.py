@@ -1,6 +1,13 @@
 from linear_algebra.vectors_ops.Vector import Vector
 
 
+
+
+def quiz6():
+    v1 = Vector([8.462, 7.893, -8.187])
+    v2 = Vector([6.984, -5.975, 4.778 ])
+    print("cross product: %s" % (v1.cross_product(v2)))
+
 def quiz5():
     v1 = Vector([3.039, 1.879])
     v2 = Vector([0.825, 2.036])
@@ -87,6 +94,7 @@ def quiz1():
     print(v2)
 
 def main():
+    quiz6()
     quiz5()
     quiz4()
     quiz3()
