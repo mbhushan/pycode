@@ -114,6 +114,7 @@ class Vector(object):
 
 
     def area_triangle(self, v):
-        None
+        area = self.area_parallelogram(v)
+        return area * 0.5
 
 
