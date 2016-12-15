@@ -96,7 +96,18 @@ class Vector(object):
         return ans
 
     def cross_product(self, v):
-        None
+       if (len(self.coordinates) == 3) and (len(v.coordinates) == 3):
+           a1, a2, a3 = self.coordinates
+           b1, b2, b3 = v.coordinates
+           return Vector([
+               a2 * b3 - a3 * b2,
+               a3 * b1 - a1 * b3,
+               a1 * b2 - a2 * b1
+           ])
+       else:
+           print("invalid vectors for cross product found!")
+
+
 
     def area_parallelogram(self, v):
         None
