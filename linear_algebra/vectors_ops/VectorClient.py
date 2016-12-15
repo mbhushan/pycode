@@ -8,6 +8,11 @@ def quiz6():
     v2 = Vector([6.984, -5.975, 4.778 ])
     print("cross product: %s" % (v1.cross_product(v2)))
 
+    v1 = Vector([-8.987, -9.838, 5.031])
+    v2 = Vector([-4.268, -1.861, -8.866 ])
+    print("parallelogram area: %s" % (v1.area_parallelogram(v2)))
+
+
 def quiz5():
     v1 = Vector([3.039, 1.879])
     v2 = Vector([0.825, 2.036])
