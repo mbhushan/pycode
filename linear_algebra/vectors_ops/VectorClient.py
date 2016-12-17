@@ -3,6 +3,7 @@ from linear_algebra.vectors_ops.Vector import Vector
 
 
 
+## PART 1 Linear Algebra.
 def quiz6():
     v1 = Vector([8.462, 7.893, -8.187])
     v2 = Vector([6.984, -5.975, 4.778 ])
